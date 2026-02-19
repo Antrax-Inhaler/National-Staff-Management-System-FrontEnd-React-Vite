@@ -1,0 +1,166 @@
+@font-face {
+  font-family: 'Twemoji Mozilla';
+  src: url(./fonts/TwemojiMozilla.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+.stdropdown-container {
+  text-align: left;
+  border: 1px solid #ccc;
+  position: relative;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.stdropdown-input input {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif, 'Twemoji Mozilla' !important;
+}
+.stdropdown-flag{
+  font-family: "Twemoji Mozilla" !important;
+}
+.stdropdown-menu::-webkit-scrollbar {
+  width: 2px;
+}
+
+.stdropdown-menu::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.stdropdown-menu::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.stdropdown-menu::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.stdropdown-input {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+}
+
+.stdropdown-menu {
+  position: absolute;
+  transform: translateY(4px);
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: auto;
+  max-height: 150px;
+  background-color: #fff;
+  z-index: 99;
+}
+
+.stdropdown-item {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.stdropdown-item:hover {
+  background-color: #9fc3f870;
+}
+
+.stdropdown-item.selected {
+  background-color: #0d6efd;
+  color: #fff;
+}
+
+.stdropdown-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.stdropdown-tag-item {
+  background-color: #ddd;
+  padding: 2px 4px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+}
+
+.stdropdown-tag-close {
+  display: flex;
+  align-items: center;
+}
+
+.stsearch-box {
+  padding: 5px;
+  background-color: transparent;
+}
+
+.stsearch-box input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* ========================= */
+/* 🌙 Dark Mode Overrides */
+/* ========================= */
+
+html.dark .stdropdown-input {
+  background: #111827; /* gray-900 */
+  border-color: #374151; /* gray-700 */
+}
+
+html.dark .stdropdown-input input {
+  color: #f9fafb; /* gray-50 */
+}
+
+html.dark .stdropdown-input input::placeholder {
+  color: #9ca3af; /* gray-400 */
+}
+
+html.dark .stdropdown-tool {
+  color: #9ca3af;
+}
+
+/* Dropdown menu */
+html.dark .stdropdown-menu {
+  background: #1f2933; /* gray-800 */
+  border-color: #374151;
+}
+
+/* Dropdown item */
+html.dark .stdropdown-item {
+  color: #f9fafb;
+}
+
+html.dark .stdropdown-item:hover {
+  background: #374151; /* gray-700 */
+}
+
+/* Selected item */
+html.dark .stdropdown-item.selected {
+  background: #1e40af; /* blue-800 */
+  color: #dbeafe; /* blue-100 */
+}
+
+
+/* in your global CSS file */
+.direction-rtl {
+  direction: rtl; /* moves scrollbar to left */
+}
+
+/* fix content inside so text is normal */
+.direction-ltr {
+  direction: ltr;
+}
+
+/* hide default scrollbar */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

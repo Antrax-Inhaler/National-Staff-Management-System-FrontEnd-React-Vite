@@ -1,0 +1,512 @@
+import { Committees, National_Roles, Roles } from "@v1/constants/roles";
+import Members from "@v1/pages/Members";
+import Profile from "@v1/pages/Profile";
+import type { AppRoute } from "@v1/types/AppRoute";
+import Information from "@v1/pages/national/Information";
+import ArchivedMembers from "@v1/pages/ArchivedMembers";
+import InformationHub from "@v1/pages/InformationHub";
+import ArticleDetailPage from "@v1/pages/ArticleDetailPage";
+import { Positions } from "@v1/constants/positions";
+import Links from "@v1/pages/Links";
+import LinkList from "@v1/pages/LinkList";
+import NationalLeaders from "@v1/pages/national/NationalLeaders";
+import Affiliates from "@v1/pages/national/Affiliates";
+import MemberDetail from "@v1/pages/MemberDetail";
+import AffiliateLayout from "@v1/layout/AffiliateLayout";
+import AffiliateMembers from "@v1/pages/national/AffiliateMembers";
+import AffiliateOfficers from "@v1/pages/national/AffiliateOfficers";
+import SettingLayout from "@v1/layout/SettingLayout";
+import Domains from "@v1/pages/settings/Domains";
+import NationalLeaderLayout from "@v1/layout/NationalLeaderLayout";
+import Officers from "@v1/pages/affiliate/Officers";
+import AuditLog from "@v1/pages/AuditLog";
+import Dashboard from "@v1/pages/Dashboard";
+// Move this inside v1 folder and use allias
+import CsvImport from "../../components/import/CsvImport";
+import CsvImportPage from "../../components/import/CsvImportPage";
+import AffiliateImportPage from "../../components/import/AffiliateImportPage";
+import ResearchDocuments from "@v1/pages/ResearchDocuments";
+import GovernanceDocuments from "@v1/pages/GovernanceDocuments";
+import NewOverview from "@v1/pages/research/NewOverview";
+import NationalLeaderRoster from "@v1/pages/national/NationalLeaderRoster";
+import NationalLeader from "@v1/pages/national/NationalLeader";
+import HelpVideos from "@v1/pages/help/HelpVideos";
+
+export const AppRoutes: AppRoute[] = [
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
+    roles: [
+      Roles.AFFILIATE_MEMBER,
+      Roles.AFFILIATE_OFFICER,
+      Roles.ORG_EXECUTIVE_COMMITEE,
+      Roles.ORG_RESEARCH_COMMITEE,
+      Roles.NATIONAL_ADMINISTRATOR,
+      Roles.PRESIDENT,
+      Roles.VICE_PRESIDENT_DEFENSE,
+      Roles.VICE_PRESIDENT_PROGRAM,
+      Roles.SECRETARY,
+      Roles.REGION_1_DIRECTOR,
+      Roles.REGION_2_DIRECTOR,
+      Roles.REGION_3_DIRECTOR,
+      Roles.REGION_4_DIRECTOR,
+      Roles.REGION_5_DIRECTOR,
+      Roles.REGION_6_DIRECTOR,
+      Roles.REGION_7_DIRECTOR,
+      Roles.AT_LARGE_DIRECTOR_ASSOCIATE,
+      Roles.AT_LARGE_DIRECTOR_PROFESSIONAL,
+    ],
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
+    roles: [
+      Roles.AFFILIATE_MEMBER,
+      Roles.AFFILIATE_OFFICER,
+      Roles.ORG_EXECUTIVE_COMMITEE,
+      Roles.ORG_RESEARCH_COMMITEE,
+      Roles.NATIONAL_ADMINISTRATOR,
+      Roles.PRESIDENT,
+      Roles.VICE_PRESIDENT_DEFENSE,
+      Roles.VICE_PRESIDENT_PROGRAM,
+      Roles.SECRETARY,
+      Roles.REGION_1_DIRECTOR,
+      Roles.REGION_2_DIRECTOR,
+      Roles.REGION_3_DIRECTOR,
+      Roles.REGION_4_DIRECTOR,
+      Roles.REGION_5_DIRECTOR,
+      Roles.REGION_6_DIRECTOR,
+      Roles.REGION_7_DIRECTOR,
+      Roles.AT_LARGE_DIRECTOR_ASSOCIATE,
+      Roles.AT_LARGE_DIRECTOR_PROFESSIONAL,
+    ],
+  },
+  {
+    path: "/members",
+    element: <Members />,
+    roles: [
+      Roles.AFFILIATE_OFFICER,
+      Roles.ORG_EXECUTIVE_COMMITEE,
+      Roles.ORG_RESEARCH_COMMITEE,
+      Roles.NATIONAL_ADMINISTRATOR,
+      Roles.PRESIDENT,
+      Roles.VICE_PRESIDENT_DEFENSE,
+      Roles.VICE_PRESIDENT_PROGRAM,
+      Roles.SECRETARY,
+      Roles.REGION_1_DIRECTOR,
+      Roles.REGION_2_DIRECTOR,
+      Roles.REGION_3_DIRECTOR,
+      Roles.REGION_4_DIRECTOR,
+      Roles.REGION_5_DIRECTOR,
+      Roles.REGION_6_DIRECTOR,
+      Roles.REGION_7_DIRECTOR,
+      Roles.AT_LARGE_DIRECTOR_ASSOCIATE,
+      Roles.AT_LARGE_DIRECTOR_PROFESSIONAL,
+    ],
+  },
+  {
+    path: "members/archives",
+    element: <ArchivedMembers />,
+    roles: [
+      Roles.AFFILIATE_OFFICER,
+      Roles.ORG_EXECUTIVE_COMMITEE,
+      Roles.ORG_RESEARCH_COMMITEE,
+      Roles.NATIONAL_ADMINISTRATOR,
+      Roles.PRESIDENT,
+      Roles.VICE_PRESIDENT_DEFENSE,
+      Roles.VICE_PRESIDENT_PROGRAM,
+      Roles.SECRETARY,
+      Roles.REGION_1_DIRECTOR,
+      Roles.REGION_2_DIRECTOR,
+      Roles.REGION_3_DIRECTOR,
+      Roles.REGION_4_DIRECTOR,
+      Roles.REGION_5_DIRECTOR,
+      Roles.REGION_6_DIRECTOR,
+      Roles.REGION_7_DIRECTOR,
+      Roles.AT_LARGE_DIRECTOR_ASSOCIATE,
+      Roles.AT_LARGE_DIRECTOR_PROFESSIONAL,
+    ],
+  },
+  {
+    path: "/information",
+    element: <Information />,
+    roles: [
+      Roles.ORG_EXECUTIVE_COMMITEE,
+      Roles.ORG_RESEARCH_COMMITEE,
+      Roles.NATIONAL_ADMINISTRATOR,
+    ],
+  },
+  {
+    path: "/national-information",
+    element: <InformationHub />,
+    roles: [Roles.AFFILIATE_MEMBER],
+  },
+  {
+    path: "/national-information/:public_uid",
+    element: <ArticleDetailPage />,
+    roles: [
+      Roles.AFFILIATE_MEMBER,
+      Roles.AFFILIATE_OFFICER,
+      Roles.ORG_EXECUTIVE_COMMITEE,
+      Roles.ORG_RESEARCH_COMMITEE,
+      Roles.NATIONAL_ADMINISTRATOR,
+      Roles.PRESIDENT,
+      Roles.VICE_PRESIDENT_DEFENSE,
+      Roles.VICE_PRESIDENT_PROGRAM,
+      Roles.SECRETARY,
+      Roles.REGION_1_DIRECTOR,
+      Roles.REGION_2_DIRECTOR,
+      Roles.REGION_3_DIRECTOR,
+      Roles.REGION_4_DIRECTOR,
+      Roles.REGION_5_DIRECTOR,
+      Roles.REGION_6_DIRECTOR,
+      Roles.REGION_7_DIRECTOR,
+      Roles.AT_LARGE_DIRECTOR_ASSOCIATE,
+      Roles.AT_LARGE_DIRECTOR_PROFESSIONAL,
+    ],
+  },
+  {
+    path: "/research-documents",
+    element: <ResearchDocuments />,
+    roles: [...National_Roles],
+    positions: [
+      Positions.PRESIDENT,
+      Positions.SECRETARY,
+      Positions.BARGAINING_CHAIR,
+      Positions.GRIEVANCE_CHAIR,
+    ],
+    children: [
+      {
+        path: "affiliate-explorer/:affiliate_uid",
+        element: <NewOverview type="research" />,
+        roles: [...National_Roles],
+        positions: [
+          Positions.PRESIDENT,
+          Positions.SECRETARY,
+          Positions.BARGAINING_CHAIR,
+          Positions.GRIEVANCE_CHAIR,
+        ],
+      },
+    ],
+  },
+  {
+    path: "/governance-documents",
+    element: <GovernanceDocuments />,
+    roles: [...National_Roles],
+    positions: [
+      Positions.PRESIDENT,
+      Positions.SECRETARY,
+      Positions.BARGAINING_CHAIR,
+      Positions.GRIEVANCE_CHAIR,
+    ],
+    children: [
+      {
+        path: "affiliate-explorer/:affiliate_uid",
+        element: <NewOverview type="governance" />,
+        roles: [...National_Roles],
+        positions: [
+          Positions.PRESIDENT,
+          Positions.SECRETARY,
+          Positions.BARGAINING_CHAIR,
+          Positions.GRIEVANCE_CHAIR,
+        ],
+      },
+    ],
+  },
+  {
+    path: "/national-documents",
+    element: <NewOverview type="national" />,
+    roles: [Roles.AFFILIATE_MEMBER], //VISIBLE TO ALL USERS
+  },
+  {
+    path: "link-management",
+    element: <Links />,
+    roles: [...National_Roles],
+  },
+  {
+    path: "links",
+    element: <LinkList />,
+    roles: [Roles.AFFILIATE_MEMBER],
+  },
+  {
+    path: "csv-import",
+    element: <CsvImportPage />,
+    roles: [
+      Roles.ORG_EXECUTIVE_COMMITEE,
+      Roles.ORG_RESEARCH_COMMITEE,
+      Roles.NATIONAL_ADMINISTRATOR,
+      Roles.PRESIDENT,
+      Roles.VICE_PRESIDENT_DEFENSE,
+      Roles.VICE_PRESIDENT_PROGRAM,
+      Roles.SECRETARY,
+      Roles.REGION_1_DIRECTOR,
+      Roles.REGION_2_DIRECTOR,
+      Roles.REGION_3_DIRECTOR,
+      Roles.REGION_4_DIRECTOR,
+      Roles.REGION_5_DIRECTOR,
+      Roles.REGION_6_DIRECTOR,
+      Roles.REGION_7_DIRECTOR,
+      Roles.AT_LARGE_DIRECTOR_ASSOCIATE,
+      Roles.AT_LARGE_DIRECTOR_PROFESSIONAL,
+    ],
+  },
+  {
+    path: "members-import",
+    element: <CsvImport />,
+    roles: [
+      Roles.ORG_EXECUTIVE_COMMITEE,
+      Roles.ORG_RESEARCH_COMMITEE,
+      Roles.NATIONAL_ADMINISTRATOR,
+      Roles.PRESIDENT,
+      Roles.VICE_PRESIDENT_DEFENSE,
+      Roles.VICE_PRESIDENT_PROGRAM,
+      Roles.SECRETARY,
+      Roles.REGION_1_DIRECTOR,
+      Roles.REGION_2_DIRECTOR,
+      Roles.REGION_3_DIRECTOR,
+      Roles.REGION_4_DIRECTOR,
+      Roles.REGION_5_DIRECTOR,
+      Roles.REGION_6_DIRECTOR,
+      Roles.REGION_7_DIRECTOR,
+      Roles.AT_LARGE_DIRECTOR_ASSOCIATE,
+      Roles.AT_LARGE_DIRECTOR_PROFESSIONAL,
+    ],
+  },
+  {
+    path: "import-affiliate",
+    element: <AffiliateImportPage />,
+    roles: [
+      Roles.ORG_EXECUTIVE_COMMITEE,
+      Roles.ORG_RESEARCH_COMMITEE,
+      Roles.NATIONAL_ADMINISTRATOR,
+      Roles.PRESIDENT,
+      Roles.VICE_PRESIDENT_DEFENSE,
+      Roles.VICE_PRESIDENT_PROGRAM,
+      Roles.SECRETARY,
+      Roles.REGION_1_DIRECTOR,
+      Roles.REGION_2_DIRECTOR,
+      Roles.REGION_3_DIRECTOR,
+      Roles.REGION_4_DIRECTOR,
+      Roles.REGION_5_DIRECTOR,
+      Roles.REGION_6_DIRECTOR,
+      Roles.REGION_7_DIRECTOR,
+      Roles.AT_LARGE_DIRECTOR_ASSOCIATE,
+      Roles.AT_LARGE_DIRECTOR_PROFESSIONAL,
+    ],
+  },
+  {
+    path: "affiliates",
+    element: <Affiliates />,
+    roles: [
+      Roles.AFFILIATE_OFFICER,
+      Roles.ORG_EXECUTIVE_COMMITEE,
+      Roles.ORG_RESEARCH_COMMITEE,
+      Roles.NATIONAL_ADMINISTRATOR,
+      Roles.PRESIDENT,
+      Roles.VICE_PRESIDENT_DEFENSE,
+      Roles.VICE_PRESIDENT_PROGRAM,
+      Roles.SECRETARY,
+      Roles.REGION_1_DIRECTOR,
+      Roles.REGION_2_DIRECTOR,
+      Roles.REGION_3_DIRECTOR,
+      Roles.REGION_4_DIRECTOR,
+      Roles.REGION_5_DIRECTOR,
+      Roles.REGION_6_DIRECTOR,
+      Roles.REGION_7_DIRECTOR,
+      Roles.AT_LARGE_DIRECTOR_ASSOCIATE,
+      Roles.AT_LARGE_DIRECTOR_PROFESSIONAL,
+    ],
+    positions: [Positions.PRESIDENT, Positions.SECRETARY, Positions.TREASURER],
+  },
+  {
+    path: "members/:id",
+    element: <MemberDetail />,
+    roles: [Roles.AFFILIATE_OFFICER, ...National_Roles],
+  },
+  {
+    path: "affiliates/:uid",
+    element: <AffiliateLayout />,
+    roles: [
+      Roles.ORG_EXECUTIVE_COMMITEE,
+      Roles.ORG_RESEARCH_COMMITEE,
+      Roles.NATIONAL_ADMINISTRATOR,
+      Roles.PRESIDENT,
+      Roles.VICE_PRESIDENT_DEFENSE,
+      Roles.VICE_PRESIDENT_PROGRAM,
+      Roles.SECRETARY,
+      Roles.REGION_1_DIRECTOR,
+      Roles.REGION_2_DIRECTOR,
+      Roles.REGION_3_DIRECTOR,
+      Roles.REGION_4_DIRECTOR,
+      Roles.REGION_5_DIRECTOR,
+      Roles.REGION_6_DIRECTOR,
+      Roles.REGION_7_DIRECTOR,
+      Roles.AT_LARGE_DIRECTOR_ASSOCIATE,
+      Roles.AT_LARGE_DIRECTOR_PROFESSIONAL,
+    ],
+    children: [
+      {
+        path: "members",
+        element: <Members />,
+        roles: [
+          Roles.ORG_EXECUTIVE_COMMITEE,
+          Roles.ORG_RESEARCH_COMMITEE,
+          Roles.NATIONAL_ADMINISTRATOR,
+          Roles.PRESIDENT,
+          Roles.VICE_PRESIDENT_DEFENSE,
+          Roles.VICE_PRESIDENT_PROGRAM,
+          Roles.SECRETARY,
+          Roles.REGION_1_DIRECTOR,
+          Roles.REGION_2_DIRECTOR,
+          Roles.REGION_3_DIRECTOR,
+          Roles.REGION_4_DIRECTOR,
+          Roles.REGION_5_DIRECTOR,
+          Roles.REGION_6_DIRECTOR,
+          Roles.REGION_7_DIRECTOR,
+          Roles.AT_LARGE_DIRECTOR_ASSOCIATE,
+          Roles.AT_LARGE_DIRECTOR_PROFESSIONAL,
+        ],
+      },
+      {
+        path: "members/archives",
+        element: <ArchivedMembers />,
+        roles: [
+          Roles.ORG_EXECUTIVE_COMMITEE,
+          Roles.ORG_RESEARCH_COMMITEE,
+          Roles.NATIONAL_ADMINISTRATOR,
+          Roles.PRESIDENT,
+          Roles.VICE_PRESIDENT_DEFENSE,
+          Roles.VICE_PRESIDENT_PROGRAM,
+          Roles.SECRETARY,
+          Roles.REGION_1_DIRECTOR,
+          Roles.REGION_2_DIRECTOR,
+          Roles.REGION_3_DIRECTOR,
+          Roles.REGION_4_DIRECTOR,
+          Roles.REGION_5_DIRECTOR,
+          Roles.REGION_6_DIRECTOR,
+          Roles.REGION_7_DIRECTOR,
+          Roles.AT_LARGE_DIRECTOR_ASSOCIATE,
+          Roles.AT_LARGE_DIRECTOR_PROFESSIONAL,
+        ],
+      },
+      {
+        path: "officers",
+        element: <AffiliateOfficers />,
+        roles: [
+          Roles.ORG_EXECUTIVE_COMMITEE,
+          Roles.ORG_RESEARCH_COMMITEE,
+          Roles.NATIONAL_ADMINISTRATOR,
+          Roles.PRESIDENT,
+          Roles.VICE_PRESIDENT_DEFENSE,
+          Roles.VICE_PRESIDENT_PROGRAM,
+          Roles.SECRETARY,
+          Roles.REGION_1_DIRECTOR,
+          Roles.REGION_2_DIRECTOR,
+          Roles.REGION_3_DIRECTOR,
+          Roles.REGION_4_DIRECTOR,
+          Roles.REGION_5_DIRECTOR,
+          Roles.REGION_6_DIRECTOR,
+          Roles.REGION_7_DIRECTOR,
+          Roles.AT_LARGE_DIRECTOR_ASSOCIATE,
+          Roles.AT_LARGE_DIRECTOR_PROFESSIONAL,
+        ],
+      },
+      {
+        path: "configurations",
+        element: <SettingLayout />,
+        roles: [
+          Roles.NATIONAL_ADMINISTRATOR,
+          ...Committees.EXECUTIVE_COMMITTEE,
+        ],
+        children: [
+          {
+            path: "domains",
+            element: <Domains />,
+            roles: [
+              Roles.NATIONAL_ADMINISTRATOR,
+              ...Committees.EXECUTIVE_COMMITTEE,
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    path: "leader-roster",
+    element: <NationalLeaderRoster />,
+    roles: [
+      Roles.ORG_EXECUTIVE_COMMITEE,
+      Roles.ORG_RESEARCH_COMMITEE,
+      Roles.NATIONAL_ADMINISTRATOR,
+      Roles.PRESIDENT,
+      Roles.VICE_PRESIDENT_DEFENSE,
+      Roles.VICE_PRESIDENT_PROGRAM,
+      Roles.SECRETARY,
+      Roles.REGION_1_DIRECTOR,
+      Roles.REGION_2_DIRECTOR,
+      Roles.REGION_3_DIRECTOR,
+      Roles.REGION_4_DIRECTOR,
+      Roles.REGION_5_DIRECTOR,
+      Roles.REGION_6_DIRECTOR,
+      Roles.REGION_7_DIRECTOR,
+      Roles.AT_LARGE_DIRECTOR_ASSOCIATE,
+      Roles.AT_LARGE_DIRECTOR_PROFESSIONAL,
+    ],
+    children: [
+      {
+        path: ":id/users",
+        element: <NationalLeader />,
+        roles: [
+          Roles.NATIONAL_ADMINISTRATOR,
+          Roles.VICE_PRESIDENT_DEFENSE,
+          Roles.VICE_PRESIDENT_PROGRAM,
+          Roles.SECRETARY,
+          Roles.REGION_1_DIRECTOR,
+          Roles.REGION_2_DIRECTOR,
+          Roles.REGION_3_DIRECTOR,
+          Roles.REGION_4_DIRECTOR,
+          Roles.REGION_5_DIRECTOR,
+          Roles.REGION_6_DIRECTOR,
+          Roles.REGION_7_DIRECTOR,
+          Roles.AT_LARGE_DIRECTOR_ASSOCIATE,
+          Roles.AT_LARGE_DIRECTOR_PROFESSIONAL,
+          ...Committees.EXECUTIVE_COMMITTEE,
+        ],
+      },
+    ],
+  },
+  {
+    path: "/officers",
+    element: <Officers />,
+    roles: [Roles.AFFILIATE_OFFICER],
+  },
+  {
+    path: "/audit-logs",
+    element: <AuditLog />,
+    roles: [Roles.NATIONAL_ADMINISTRATOR, ...Committees.EXECUTIVE_COMMITTEE],
+  },
+  {
+    path: "/help-videos",
+    element: <HelpVideos />,
+    roles: [Roles.AFFILIATE_MEMBER],
+  },
+  // {
+  //   path: "/settings",
+  //   element: <SettingLayout />,
+  //   roles: [
+  //     Roles.AFFILIATE_OFFICER,
+  //     // Roles.NATIONAL_ADMINISTRATOR
+  //   ],
+  //   children: [
+  //     {
+  //       path: "/settings/domains",
+  //       element: <Domains />,
+  //       index: true,
+  //       roles: [
+  //         Roles.AFFILIATE_OFFICER,
+  //         // Roles.NATIONAL_ADMINISTRATOR
+  //       ],
+  //     },
+  //   ],
+  // },
+];
